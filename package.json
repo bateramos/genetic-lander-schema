@@ -8,6 +8,9 @@
   },
   "author": "",
   "license": "ISC",
+  "files": [
+    "/build/js/schemas/*"
+  ],
   "dependencies": {
     "google-protobuf": "^3.19.1"
   },

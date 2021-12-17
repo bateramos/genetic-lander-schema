@@ -33,5 +33,5 @@ jobs:
       - name: Login to Cargo
         run: cargo login ${{ secrets.CARGO_KEY }}
 
-      - name: Build Package
+      - name: Publish Package
         run: cargo publish --allow-dirty
