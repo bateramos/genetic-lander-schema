@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+message TrainingRun {
+        int32 generation = 1;
+        float heigh = 2;
+        float descent_speed = 3;
+        float descent_time = 4;
+        int32 id = 5;
+}
