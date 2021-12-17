@@ -3,6 +3,8 @@ name = "genetic-lander-schema"
 version = "0.1.0"
 edition = "2021"
 include = ["/src", "/build/rs/*"]
+description = "Schema library for Genetic Lander Stack"
+license = "Apache-2.0"
 
 [lib]
 

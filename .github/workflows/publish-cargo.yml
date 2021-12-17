@@ -1,0 +1,37 @@
+name: "publish-cargo"
+
+on:
+  workflow_dispatch:
+    inputs:
+
+jobs:
+  publish-cargo:
+    name: Publish-Cargo
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+
+      - name: Install Protoc
+        uses: arduino/setup-protoc@v1
+        with:
+          version: '3.19'
+
+      - name: Build Schema Library
+        run: |
+          mkdir -p build/rs
+          cargo install protobuf-codegen
+          protoc --rust_out build/rs schemas/*.proto
+
+      - name: Login to Cargo
+        run: cargo login ${{ secrets.CARGO_KEY }}
+
+      - name: Build Package
+        run: cargo publish --allow-dirty
