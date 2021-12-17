@@ -1,0 +1,8 @@
+{
+  "include": ["build/js/schemas/*"],
+  "exclude": ["src"],
+  "compilerOptions": {
+    "outDir": "dist"
+  }
+}
+
